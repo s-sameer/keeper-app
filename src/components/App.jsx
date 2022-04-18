@@ -13,7 +13,7 @@ function App() {
   const [clicked, setClicked] = useState(false)
   const collectionRef = collection(db, "tasks")
   
-  useEffect((collectionRef) => {
+  useEffect(() => {
     const getTasks = async ()=>{
       const data = await getDocs(collectionRef);
       // For every doc in the collection, I'm going to return a js object containing the data in the doc
@@ -21,7 +21,7 @@ function App() {
     };
     getTasks();
     setClicked(false)
-  }, [clicked])
+  }, [clicked, collectionRef])
   
 
   const addNote = async (newNote) => {
